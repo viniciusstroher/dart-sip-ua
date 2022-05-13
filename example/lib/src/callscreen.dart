@@ -210,11 +210,9 @@ class _MyCallScreenWidget extends State<CallScreenWidget>
   }
 
   void _handleAccept() async {
-    bool remote_has_video = call!.remote_has_video;
-    final mediaConstraints = <String, dynamic>{
-      'audio': true,
-      'video': remote_has_video
-    };
+    // bool remote_has_video = call!.remote_has_video;
+    bool remote_has_video = false;
+    final mediaConstraints = <String, dynamic>{'audio': true, 'video': false};
     MediaStream mediaStream;
 
     if (kIsWeb && remote_has_video) {

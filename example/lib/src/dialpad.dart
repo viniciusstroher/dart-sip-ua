@@ -172,7 +172,7 @@ class _MyDialPadWidget extends State<DialPadWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: _buildNumPad())),
       Container(
-          width: 300,
+          width: 200,
           child: Padding(
               padding: const EdgeInsets.all(12),
               child: Row(

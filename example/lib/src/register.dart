@@ -43,15 +43,16 @@ class _MyRegisterWidget extends State<RegisterWidget>
   void _loadSettings() async {
     _preferences = await SharedPreferences.getInstance();
     this.setState(() {
-      _wsUriController.text =
-          _preferences.getString('ws_uri') ?? 'wss://tryit.jssip.net:10443';
-      _sipUriController.text =
-          _preferences.getString('sip_uri') ?? 'hello_flutter@tryit.jssip.net';
+      _wsUriController.text = _preferences.getString('ws_uri') ??
+          'wss://webrtc.scaip.com.br:8079/ws';
+      _sipUriController.text = _preferences.getString('sip_uri') ??
+          'webrtc_client@webrtc.scaip.com.br';
       _displayNameController.text =
           _preferences.getString('display_name') ?? 'Flutter SIP UA';
-      _passwordController.text = _preferences.getString('password') ?? '';
+      _passwordController.text =
+          _preferences.getString('password') ?? 'webrtc_client';
       _authorizationUserController.text =
-          _preferences.getString('auth_user') ?? '';
+          _preferences.getString('auth_user') ?? 'webrtc_client';
     });
   }
 
@@ -238,34 +239,10 @@ class _MyRegisterWidget extends State<RegisterWidget>
                       ),
                     ],
                   ),
-                  Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(46.0, 18.0, 48.0, 0),
-                        child: Align(
-                          child: Text('Display Name:'),
-                          alignment: Alignment.centerLeft,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(48.0, 0.0, 48.0, 0),
-                        child: TextFormField(
-                          controller: _displayNameController,
-                          keyboardType: TextInputType.text,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10.0),
-                            border: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12)),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 18.0, 0.0, 0.0),
                       child: Container(
-                        height: 48.0,
+                        height: 40.0,
                         width: 160.0,
                         child: MaterialButton(
                           child: Text(
